@@ -1,0 +1,77 @@
+name: 🏫 University Data Change Request
+description: Request a change, update, or addition to university data in the repository.
+title: "[Data Change]: "
+labels: "type: data-update"
+body:
+- type: dropdown
+  attributes:
+    label: Request Type
+    description: What kind of data change are you requesting?
+    options:
+    - Update existing university data (domain/web page/name)
+    - Add missing university
+    - Remove incorrect entry
+    - Other
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Current Data
+    description: If this is an update, please provide the current entry in the JSON file.
+    placeholder: |
+      ```json
+      {
+        "web_pages": ["http://www.example.edu/"],
+        "name": "Example University",
+        "alpha_two_code": "US",
+        "state-province": null,
+        "domains": ["example.edu"],
+        "country": "United States"
+      }
+      ```
+  validations:
+    required: false
+
+- type: textarea
+  attributes:
+    label: Proposed Changes
+    description: Provide the updated or new data entry.
+    placeholder: |
+      ```json
+      {
+        "web_pages": ["https://www.example.edu/"],
+        "name": "Example University",
+        "alpha_two_code": "US",
+        "state-province": "California",
+        "domains": ["example.edu", "new-domain.edu"],
+        "country": "United States"
+      }
+      ```
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Reason for Change
+    description: Please explain why this change is needed.
+    placeholder: "e.g., The university has updated its domain name from example.edu to new-domain.edu."
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Verification Source
+    description: Please provide links or references that verify this information.
+    placeholder: "e.g., Official university website, press release, email from university IT department, etc."
+  validations:
+    required: true
+
+- type: checkboxes
+  attributes:
+    label: Confirmation
+    options:
+    - label: I have checked that this change request is not already covered by an existing issue.
+      required: true
+    - label: I have verified this information is accurate and current.
+      required: true
