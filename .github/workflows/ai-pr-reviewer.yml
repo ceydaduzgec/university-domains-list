@@ -6,14 +6,13 @@ on:
     paths:
       - 'world_universities_and_domains.json'
 
-permissions: read-all
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   ai-review:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-      contents: read
 
     steps:
       - name: Checkout Code

@@ -1,6 +1,7 @@
 import os
-import requests
+
 import google.generativeai as genai
+import requests
 
 API_KEY = os.environ.get("AI_API_KEY")
 PR_NUMBER = os.environ.get("PR_NUMBER")
@@ -8,24 +9,27 @@ REPO = os.environ.get("GITHUB_REPOSITORY")
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
 
 genai.configure(api_key=API_KEY)
-model = genai.GenerativeModel('gemini-1.5-flash')
+model = genai.GenerativeModel("gemini-1.5-flash")
+
 
 def get_pr_diff():
     url = f"https://api.github.com/repos/{REPO}/pulls/{PR_NUMBER}"
     headers = {
         "Authorization": f"Bearer {GITHUB_TOKEN}",
-        "Accept": "application/vnd.github.v3.diff"
+        "Accept": "application/vnd.github.v3.diff",
     }
     response = requests.get(url, headers=headers)
     return response.text
+
 
 def post_comment(comment):
     url = f"https://api.github.com/repos/{REPO}/issues/{PR_NUMBER}/comments"
     headers = {
         "Authorization": f"Bearer {GITHUB_TOKEN}",
-        "Accept": "application/vnd.github.v3+json"
+        "Accept": "application/vnd.github.v3+json",
     }
     requests.post(url, headers=headers, json={"body": comment})
+
 
 def analyze_diff(diff_text):
     if "world_universities_and_domains.json" not in diff_text:
@@ -57,6 +61,7 @@ def analyze_diff(diff_text):
         return report
     except Exception as e:
         return f"🤖 AI Reviewer encountered an error: {str(e)}"
+
 
 if __name__ == "__main__":
     diff = get_pr_diff()
