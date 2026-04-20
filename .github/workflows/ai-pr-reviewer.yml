@@ -6,6 +6,8 @@ on:
     paths:
       - 'world_universities_and_domains.json'
 
+permissions: read-all
+
 jobs:
   ai-review:
     runs-on: ubuntu-latest
