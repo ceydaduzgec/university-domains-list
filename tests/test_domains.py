@@ -1,7 +1,6 @@
 import unittest
 
 import validators
-
 from base_test import BaseUniversityTest
 
 

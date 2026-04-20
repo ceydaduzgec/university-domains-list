@@ -3,10 +3,38 @@ import unittest
 from filter import _country_filter, country_filter
 
 SAMPLE = [
-    {"name": "MIT", "country": "United States", "domains": ["mit.edu"], "web_pages": [], "alpha_two_code": "US", "state-province": None},
-    {"name": "Harvard", "country": "United States", "domains": ["harvard.edu"], "web_pages": [], "alpha_two_code": "US", "state-province": None},
-    {"name": "Oxford", "country": "United Kingdom", "domains": ["ox.ac.uk"], "web_pages": [], "alpha_two_code": "GB", "state-province": None},
-    {"name": "METU", "country": "Turkiye", "domains": ["metu.edu.tr"], "web_pages": [], "alpha_two_code": "TR", "state-province": None},
+    {
+        "name": "MIT",
+        "country": "United States",
+        "domains": ["mit.edu"],
+        "web_pages": [],
+        "alpha_two_code": "US",
+        "state-province": None,
+    },
+    {
+        "name": "Harvard",
+        "country": "United States",
+        "domains": ["harvard.edu"],
+        "web_pages": [],
+        "alpha_two_code": "US",
+        "state-province": None,
+    },
+    {
+        "name": "Oxford",
+        "country": "United Kingdom",
+        "domains": ["ox.ac.uk"],
+        "web_pages": [],
+        "alpha_two_code": "GB",
+        "state-province": None,
+    },
+    {
+        "name": "METU",
+        "country": "Turkiye",
+        "domains": ["metu.edu.tr"],
+        "web_pages": [],
+        "alpha_two_code": "TR",
+        "state-province": None,
+    },
 ]
 
 
