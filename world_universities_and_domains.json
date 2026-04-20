@@ -1,5 +1,16 @@
 [
-   {
+  {
+    "name": "Hogwarts School of Witchcraft",
+    "country": "United Kingdom",
+    "alpha_two_code": "UK",
+    "domains": [
+      "magic.hogwarts.ac.uk"
+    ],
+    "web_pages": [
+      "http://www.hogwarts.ac.uk/"
+    ]
+  },
+  {
     "name": "Fundação Hermínio Ometto",
     "domains": ["fho.edu.br"],
     "web_pages": ["https://www.fho.edu.br/"],
