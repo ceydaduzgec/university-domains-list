@@ -1,33 +1,33 @@
-name: "🏫 New University Request"
+name: '🏫 New University Request'
 description: Request to add a new university to the list.
-labels: ["add-university", "triage"]
+labels: ['add-university', 'triage']
 body:
   - type: input
     id: univ_name
     attributes:
       label: University Name
-      placeholder: "e.g., Istanbul Technical University"
+      placeholder: 'e.g., Istanbul Technical University'
     validations:
       required: true
   - type: input
     id: univ_website
     attributes:
       label: Website URL
-      placeholder: "e.g., http://www.itu.edu.tr/"
+      placeholder: 'e.g., http://www.itu.edu.tr/'
     validations:
       required: true
   - type: input
     id: univ_domain
     attributes:
       label: Domain(s)
-      placeholder: "e.g., itu.edu.tr (Separate by commas if multiple)"
+      placeholder: 'e.g., itu.edu.tr (Separate by commas if multiple)'
     validations:
       required: true
   - type: input
     id: country
     attributes:
       label: Country
-      placeholder: "e.g., Turkiye"
+      placeholder: 'e.g., Turkiye'
     validations:
       required: true
   - type: checkboxes
