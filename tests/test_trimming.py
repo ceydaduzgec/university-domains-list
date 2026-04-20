@@ -1,8 +1,6 @@
 import json
 import unittest
 
-import validators
-
 
 class DomainsTests(unittest.TestCase):
     def setUp(self):
