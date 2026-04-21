@@ -73,7 +73,7 @@ def analyze_diff(diff_text):
         print("🧠 Sending prompt to Gemini AI...")
         # Using the standard model via the new SDK
         response = client.models.generate_content(
-            model="gemini-2.0-flash", contents=prompt
+            model="gemini-2.5-flash", contents=prompt
         )
         print("✅ Gemini successfully generated a response.")
         return f"🤖 **AIOps Comprehensive PR Review**\n\n{response.text}\n\n---\n*Note: Automated review based on repository contribution guidelines.*"
