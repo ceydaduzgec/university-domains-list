@@ -34,4 +34,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          python .github/scripts/ai_reviewer.py
+          python ./.github/workflows/ai-pr-reviewer.py
