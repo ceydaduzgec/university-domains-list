@@ -1,22 +1,22 @@
 import os
 import sys
 
-import google.generativeai as genai
 import requests
+from google import genai
 
 API_KEY = os.environ.get("AI_API_KEY")
 PR_NUMBER = os.environ.get("PR_NUMBER")
 REPO = os.environ.get("GITHUB_REPOSITORY")
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
 
-print(f"🔍 DEBUG: PR: {PR_NUMBER}, REPO: {REPO}")
+print(f"🔍 DEBUG: Target PR: {PR_NUMBER}, Repository: {REPO}")
 
 if not API_KEY:
-    print("❌ CRITICAL: AI_API_KEY is missing! GitHub Secrets kontrol et.")
+    print("❌ CRITICAL: AI_API_KEY is missing! GitHub Secrets are not accessible.")
     sys.exit(1)
 
-genai.configure(api_key=API_KEY)
-model = genai.GenerativeModel("gemini-1.5-flash")
+# Initialize the new Google GenAI client
+client = genai.Client(api_key=API_KEY)
 
 
 def get_pr_diff():
@@ -39,7 +39,7 @@ def post_comment(comment):
         "Authorization": f"Bearer {GITHUB_TOKEN}",
         "Accept": "application/vnd.github.v3+json",
     }
-    print(f"📤 Posting comment to: {url}")
+    print(f"📤 Posting comment to PR #{PR_NUMBER}")
     response = requests.post(url, headers=headers, json={"body": comment})
     if response.status_code != 201:
         print(f"❌ Failed to post comment: {response.status_code} - {response.text}")
@@ -49,26 +49,34 @@ def post_comment(comment):
 
 def analyze_diff(diff_text):
     if "world_universities_and_domains.json" not in diff_text:
-        print(
-            "⏭️ No changes in world_universities_and_domains.json detected. Skipping."
-        )
+        print("⏭️ No changes detected in the university database. Skipping review.")
         return None
 
     prompt = f"""
     You are an expert maintainer for an open-source global university database.
     Review the following git diff for a Pull Request:
-    ```diff\n{diff_text}\n```
+
+    ```diff
+    {diff_text}
+    ```
+
     Evaluate ONLY the newly added lines (starting with '+') against our STRICT rules:
-    1. **Existence**: Is it a real university?
+    1. **Existence**: Is it a real, recognized university?
     2. **Schema**: Does it have `name`, `country`, `alpha_two_code`, `domains`, `web_pages`, `state-province`?
-    3. **ROOT DOMAINS**: Ensure ONLY root domains are used.
-    Format as a checklist. Conclude with "✅ PASSED" or "❌ FLAGGED".
+    3. **ROOT DOMAINS ONLY**: Subdomains (like cs.usc.edu) are strictly forbidden.
+    4. **Formatting**: Valid JSON format?
+
+    Format your output as a clear checklist. Conclude with either "✅ PASSED" or "❌ FLAGGED: [Reason]".
     """
+
     try:
-        print("🧠 Sending prompt to Gemini...")
-        response = model.generate_content(prompt)
-        print("✅ Gemini successfully responded.")
-        return f"🤖 **AIOps Comprehensive PR Review**\n\n{response.text}\n\n---\n*Automated review check.*"
+        print("🧠 Sending prompt to Gemini AI...")
+        # Using the standard model via the new SDK
+        response = client.models.generate_content(
+            model="gemini-1.5-flash", contents=prompt
+        )
+        print("✅ Gemini successfully generated a response.")
+        return f"🤖 **AIOps Comprehensive PR Review**\n\n{response.text}\n\n---\n*Note: Automated review based on repository contribution guidelines.*"
     except Exception as e:
         print(f"❌ Gemini API Error: {str(e)}")
         sys.exit(1)
