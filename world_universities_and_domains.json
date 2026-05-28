@@ -2924,14 +2924,6 @@
     "country": "United States"
   },
   {
-    "web_pages": ["http://www.cornell-iowa.edu/"],
-    "name": "Cornell College",
-    "alpha_two_code": "US",
-    "state-province": null,
-    "domains": ["cornell-iowa.edu"],
-    "country": "United States"
-  },
-  {
     "web_pages": ["http://www.cornell.edu/"],
     "name": "Cornell University",
     "alpha_two_code": "US",
@@ -3041,14 +3033,6 @@
     "alpha_two_code": "US",
     "state-province": null,
     "domains": ["davidson.edu"],
-    "country": "United States"
-  },
-  {
-    "web_pages": ["http://www.dne.wvnet.edu/"],
-    "name": "Davis & Elkins College",
-    "alpha_two_code": "US",
-    "state-province": null,
-    "domains": ["dne.wvnet.edu"],
     "country": "United States"
   },
   {
@@ -7686,14 +7670,6 @@
     "alpha_two_code": "US",
     "state-province": null,
     "domains": ["tesc.edu", "tesu.edu"],
-    "country": "United States"
-  },
-  {
-    "web_pages": ["http://www.tju.edu/"],
-    "name": "Thomas Jefferson University",
-    "alpha_two_code": "US",
-    "state-province": null,
-    "domains": ["tju.edu"],
     "country": "United States"
   },
   {
@@ -30065,14 +30041,6 @@
     "alpha_two_code": "GH",
     "state-province": null,
     "domains": ["presbyuniversity.edu.gh"],
-    "country": "Ghana"
-  },
-  {
-    "web_pages": ["http://www.regentghana.net/"],
-    "name": "Regent University College of Science and Technology",
-    "alpha_two_code": "GH",
-    "state-province": null,
-    "domains": ["regentghana.net"],
     "country": "Ghana"
   },
   {
@@ -65816,11 +65784,11 @@
     "country": "Turkiye"
   },
   {
-    "web_pages": ["http://www.mu.edu.tr/", "http://www.marun.edu.tr/"],
+    "web_pages": ["http://www.mu.edu.tr/"],
     "name": "Mugla Sitki Kocman University",
     "alpha_two_code": "TR",
     "state-province": null,
-    "domains": ["mu.edu.tr", "marun.edu.tr"],
+    "domains": ["mu.edu.tr"],
     "country": "Turkiye"
   },
   {
@@ -79505,14 +79473,6 @@
     "state-province": null,
     "domains": ["ateneo.edu"],
     "country": "Philippines"
-  },
-  {
-    "web_pages": ["https://bath.ac.uk/"],
-    "name": "University of Bath",
-    "alpha_two_code": "GB",
-    "state-province": null,
-    "domains": ["bath.edu"],
-    "country": "United Kingdom"
   },
   {
     "web_pages": ["https://www.ulster.ac.uk/"],
